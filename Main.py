@@ -9,20 +9,11 @@ def main():
     while opcion > -1 and opcion < 4:
         ##nombre = input('Escribe el nombre del archivo con su extencion .---\n')
         img = Image.open('ejemploA.png')
-        img.show()
         if opcion == 1:
             print("Elegiste opcion 1")
             main()
         elif opcion == 2:
             print("Eliegiste opcion 2")
-            sol= open('Solucion.txt','r')
-            mensaje=sol.read()
-            print(mensaje)
-            sol.close()
-            if img == sol:
-                print("El monograma es correcto")
-            else:
-                print("Incorrecto")	
             main()
         elif opcion == 3:
             print("adios")
