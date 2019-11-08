@@ -20,23 +20,6 @@ class Imagen(object):
             list1.append('%s' %negro)
         return list1
 
-    def contadorVertical(self, imagen, coorX, coory, partes, pixeles):
-        list1 = []
-        m = pixeles/partes
-        negro = 0
-        while coory != pixeles and coory < pixeles:
-            dato_pixel = list(imagen.getpixel((coorX,coory)))
-            if [0, 0, 0] == dato_pixel:
-                coory = coory + m
-                negro = negro + 1
-            if [0, 0, 0] != dato_pixel:
-                if negro != 0:
-                    list1.append('%s' %negro)
-                    negro = 0
-            coory = coory + 1
-        if negro != 0:
-            list1.append('%s' %negro)
-        return list1
 
     def contarPixelesV(self, img):
         i = img.size
@@ -65,6 +48,33 @@ class Imagen(object):
                 parte = parte + 1
                 coory = coory + 3
         return parte
+
+    def contadorVertical(self, imagen, coorX, coory, partes, pixeles):
+        list1 = []
+        m = pixeles/partes
+        negro = 0
+        while coory != pixeles and coory < pixeles:
+            dato_pixel = list(imagen.getpixel((coorX,coory)))
+            if [0, 0, 0] == dato_pixel:
+                coory = coory + m
+                negro = negro + 1
+            if [0, 0, 0] != dato_pixel:
+                if negro != 0:
+                    list1.append('%s' %negro)
+                    negro = 0
+            coory = coory + 1
+        if negro != 0:
+            list1.append('%s' %negro)
+        return list1
+
+    """def enlistarHorizontal(self, CoordenadaX, Pixeles, Imagen, CoordenadaY, Partes):
+        list = []
+        r = Pixeles/Partes
+        while CoordenadaX != Pixeles and CoordenadaX < Pixeles:
+            n = contadorVertical(Imagen, CoordenadaX, CoordenadaY, Partes, Pixeles)
+            CoordenadaX = CoordenadaX + r
+            list.append(n)
+        return list"""
 
 
     ##def __init__(self):

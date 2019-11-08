@@ -8,15 +8,22 @@ def main():
     opcion = int(input("Elige tu opcion\n"))
     os.system('clear')
     while opcion > -1 and opcion < 4:
-        ##nombre = input('Escribe el nombre del archivo con su extencion .---\n')
         contar = Imagen()
+        ##nombre = input('Escribe el nombre del archivo con su extencion .---\n')
         if opcion == 1:
             print("Elegiste opcion 1")
+
             main()
         elif opcion == 2:
             print("Eliegiste opcion 2")
-            img = Image.open('ejemploA.png')
-            txt = open('SolucionA.txt', 'r+')
+            Imagenes = input("Nombre de la imagen\n")
+            '''if len(Imagenes) < 3:
+                if Imagenes[len(Imagenes) - 5: len(Imagenes) - 1] == 'png':
+                    img = Image.open('%s' %Imagenes)
+                else:'''
+            img = Image.open('%s.png' %Imagenes)
+            texto = input("NOmbre del txt\n")
+            txt = open('%s.txt' %texto ,'r+')
             t = txt.read()
 
             coory = 1
@@ -31,18 +38,19 @@ def main():
                 m = contar.contadorHorizontal(img,coorX,coory,p, v)
                 coory = coory + r
                 list1.append(m)
-            print(list1)
+            ##print(list1)
 
 
             coory = 1
             h = contar.contarPixelesH(img)
             p1 = contar.contarPartesH(img, coorX, coory, h)
             r = h/p1
+            ##ListaVerticalImagen = contar.enlistarHorizontal(coorX, h, img, coory, p1)
             while coorX != h and coorX < h:
                 n = contar.contadorVertical(img,coorX,coory,p1, h)
                 coorX = coorX + r
                 list2.append(n)
-            print(list2)
+            ##print(list2)
 
             list3 = []
             list4 = []
@@ -65,16 +73,29 @@ def main():
                     list4 = list3
                     list3 = []
                 itxt = itxt + 1
-            print(list4)
-            print(list3)
+            ##print(list4)
+            ##print(list3)
 
             if list4 == list1 and list3 == list2:
-                print('es valido')
+                print('\tEl Nonograma es valido\n')
+                print('Quieres continuar S o N \n')
+                resp = input(' ')
+                if resp == 'S':
+                    main()
+                if resp == 'N':
+                    return
+                else:
+                    print('Respuesta Incorrecta')
             else:
-                print('invalido')
-
-
-            main()
+                print('\tEl Nonograma es invalido\n')
+                print('Quieres continuar S o N \n')
+                resp = input(' ')
+                if resp == 'S':
+                    main()
+                if resp == 'N':
+                    return
+                else:
+                    print('Respuesta Incorrecta')
         elif opcion == 3:
             print("adios")
             return
