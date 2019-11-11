@@ -15,15 +15,17 @@ def main():
 
             main()
         elif opcion == 2:
-            print("Eliegiste opcion 2")
-            Imagenes = input("Nombre de la imagen\n")
-            '''if len(Imagenes) < 3:
-                if Imagenes[len(Imagenes) - 5: len(Imagenes) - 1] == 'png':
-                    img = Image.open('%s' %Imagenes)
-                else:'''
-            img = Image.open('%s.png' %Imagenes)
-            texto = input("NOmbre del txt\n")
-            txt = open('%s.txt' %texto ,'r+')
+
+            Imagenes = input("\tNombre de la imagen sin la extencion (solo acepta .png)\n\t")
+
+            if len(Imagenes) < 3:
+                """if Imagenes[len(Imagenes) - 5 : len(Imagenes) - 1] == '.png':
+                    img = Image.open('./Archivos/%s' %Imagenes)
+                else:"""
+            img = Image.open('./Archivos/%s.png' %Imagenes)
+
+            texto = input("\tNombre del txt sin la extencion(Solo acepta .txt)\n\t")
+            txt = open('./Archivos/%s.txt' %texto ,'r+')
             t = txt.read()
 
             coory = 1
@@ -78,8 +80,8 @@ def main():
 
             if list4 == list1 and list3 == list2:
                 print('\tEl Nonograma es valido\n')
-                print('Quieres continuar S o N \n')
-                resp = input(' ')
+                print('\tQuieres continuar S o N \n')
+                resp = input('\t ')
                 if resp == 'S':
                     main()
                 if resp == 'N':
@@ -88,7 +90,7 @@ def main():
                     print('Respuesta Incorrecta')
             else:
                 print('\tEl Nonograma es invalido\n')
-                print('Quieres continuar S o N \n')
+                print('\tQuieres continuar S o N \n')
                 resp = input(' ')
                 if resp == 'S':
                     main()
