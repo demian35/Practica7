@@ -38,7 +38,7 @@ class Lector(object):
                     contador = contador - 1
                     suma = suma + contador
                     if suma > lineas[intColum]:
-                        return "error"
+                        return "Solucion no encontrada"
                     else:
                         lista.append(suma)
                         contador = 0
@@ -47,4 +47,8 @@ class Lector(object):
                 intColum = intColum + 1
             else:
                 indice = indice + 1
-        return lista
+        ##return "Tiene Solucion"
+        ## lista
+
+    def agregarEnMatriz(self, matriz):
+        pass

@@ -1,12 +1,12 @@
 class Matriz(object):
 
-	def createList(self,n):
+	def createList(self, n):
 		listamatriz=[]
 		for i in range(n):
 			listamatriz.append(random.randint(0,100))
-		return listamatriz	
+		return listamatriz
 
-	def Matriz(self, m,l ):
+	def matriz(self, m,l ):
 		matriz= []
 		for i in range(m):
 			matriz.append(createList(l))
@@ -16,9 +16,7 @@ class Matriz(object):
 				espacios= ' '*(5-len(str(matriz[i][j])))
 				fila= fila+espacios+str(matriz[i][j])
 			print(fila)
-		return matriz		
+		return matriz
 
 	def busca(self, coorAltura, coorLargo):
-		pass 
-
-    #def __init__(self, arg):
+		pass

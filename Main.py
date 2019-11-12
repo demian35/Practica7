@@ -2,6 +2,7 @@ import os
 from PIL import Image
 from Imagen import Imagen
 from Lector import Lector
+from Matriz import Matriz
 def main():
     print ("1. Resolver un Nonograma.")
     print ("2. Verificar una solucion.")
@@ -13,17 +14,19 @@ def main():
 
             contar = Imagen()
             lector = Lector()
+            matriz = Matriz()
 
             if opcion == 1:
 
                 print("Elegiste opcion 1")
                 texto = input("Nombre del archivo txt\n")
-                txt = open('%s.txt' %texto , 'r+')
+                txt = open('./Archivos/%s.txt' %texto , 'r+')
                 t = txt.read()
                 lin = lector.contarLineas(t)
                 lin1 = lector.contadornumeros(t,lin)
-                print('%s' %lin)
+
                 print('%s' %lin1)
+
                 main()
 
 
@@ -82,13 +85,13 @@ def main():
 
                                     itxt = itxt + 1
 
-                                list3.append(list5)
-                                list5 = []
-                                itxt = itxt + 1
+                            list3.append(list5)
+                            list5 = []
+                            itxt = itxt + 1
 
-                        if len(list4) == 0:
-                            list4 = list3
-                            list3 = []
+                    if len(list4) == 0:
+                        list4 = list3
+                        list3 = []
 
                     itxt = itxt + 1
 
@@ -98,7 +101,7 @@ def main():
                     resp = input(' ')
                     if resp == 'S':
                         main()
-                    if resp == 'N':
+                    elif resp == 'N':
                         return
                     else:
                         print('Respuesta Incorrecta')
@@ -126,6 +129,8 @@ def main():
             main()
     except FileNotFoundError as err:
             print('Archivo no encontrado')
+            main()
+    except NameError as err:
             main()
 
 if __name__ == "__main__":

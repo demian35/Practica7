@@ -1,6 +1,5 @@
 from PIL import Image
 class Imagen(object):
-    """docstring for ."""
 
     def contadorHorizontal(self, imagen, coorX, coory, partes, pixeles):
         list1 = []
@@ -66,15 +65,3 @@ class Imagen(object):
         if negro != 0:
             list1.append('%s' %negro)
         return list1
-
-    """def enlistarHorizontal(self, CoordenadaX, Pixeles, Imagen, CoordenadaY, Partes):
-        list = []
-        r = Pixeles/Partes
-        while CoordenadaX != Pixeles and CoordenadaX < Pixeles:
-            n = contadorVertical(Imagen, CoordenadaX, CoordenadaY, Partes, Pixeles)
-            CoordenadaX = CoordenadaX + r
-            list.append(n)
-        return list"""
-
-
-    ##def __init__(self):
